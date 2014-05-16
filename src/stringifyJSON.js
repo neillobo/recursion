@@ -30,8 +30,8 @@ var stringifyJSON = function(obj) {
             return "\""+obj+"\"";
         case 'object':
             if (Array.isArray(obj)) {
+                //Array operations
                 if (obj.length===0) return "[]";
-                    //otherwise it is an array with elements
                     resultString = "[";
                     obj.forEach(function(item, index){
 
@@ -42,8 +42,7 @@ var stringifyJSON = function(obj) {
             resultString+="]";
             return resultString;
             }
-            else{
-                //Now it is an object
+            else{//Now it is an object
                var osize = Object.size(obj),i=0;
                if (osize===0) return "{}"; 
                resultString = "{";
@@ -55,7 +54,6 @@ var stringifyJSON = function(obj) {
                             resultString+=",";
                       }
                     }
-                    
             resultString+="}";
             return resultString;
             }
